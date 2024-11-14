@@ -1,0 +1,2 @@
+CompileFlags:
+  Add: [-std=c++17] # or -std=c++11, -std=c++14, etc.

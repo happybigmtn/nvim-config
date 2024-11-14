@@ -9,8 +9,8 @@ return {
       local bg_search = '#0A64AC'
       local bg_visual = '#275378'
       local fg = '#CBE0F0'
-      local fg_dark = '#B4D0E9'
-      local fg_gutter = '#627E97'
+      local fg_dark = '#DBE9F4'
+      local fg_gutter = '#A8B9C9'
       local border = '#547998'
 
       require('tokyonight').setup {
@@ -32,8 +32,23 @@ return {
           colors.fg_gutter = fg_gutter
           colors.fg_sidebar = fg_dark
         end,
+        on_highlights = function(highlights, colors)
+          -- Brighter comments
+          highlights.Comment = {
+            fg = '#7AA2C7'  -- Brighter blue-gray
+          }
+          
+          -- Brighter unused variables
+          highlights.DiagnosticUnnecessary = {
+            fg = '#9AB8D7'  -- Bright blue-gray
+            -- Alternative options:
+            -- fg = '#8CA2B7'  -- More muted but still visible
+            -- fg = '#A8C2D8'  -- Very bright
+          }
+        end,
       }
       -- load the colorscheme here
+      vim.opt.termguicolors = true
       vim.cmd [[colorscheme tokyonight]]
     end,
   },
